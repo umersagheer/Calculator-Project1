@@ -18,7 +18,7 @@ main {
 /* calc styles */
 .calculator {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 1rem 0.6rem;
   min-width: 220px;
   border: 1px solid grey;
@@ -30,7 +30,7 @@ main {
   display: flex;
   flex-direction: column;
   grid-column-start: 1;
-  grid-column-end: 5;
+  grid-column-end: 6;
   width: 100%;
   height: fit-content;
   background-color: #146551;
@@ -59,6 +59,7 @@ main {
 .calculator__btn {
   all: unset;
   border: 1px solid #007566;
+  padding: 5px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,6 +70,10 @@ main {
 }
 .calculator__btn:hover {
   background-color: #146551;
-  box-shadow: 2px 3px 5px #589a8d;
+  box-shadow: 2px 3px 5px #146551;
+  border:1px solid #589a8d;
   color: white;
+}
+.calculator__btn:active{
+  box-shadow: 1px 6px 6px #146551;
 }
