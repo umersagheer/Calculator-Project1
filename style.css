@@ -11,9 +11,12 @@ body {
 }
 
 main {
-  display: grid;
-  place-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:20px;
   height: 100vh;
+  flex-wrap: wrap;
 }
 /* calc styles */
 .calculator {
@@ -40,7 +43,8 @@ main {
   border-radius: 5px;
   color: white;
 }
-#calculator__operand-1 {
+#calculator__operand-1,
+#calculator__operand-2  {
   background-color: transparent;
   border: 0;
   outline: none;
@@ -50,10 +54,6 @@ main {
   font-size: 1rem;
 }
 #calculator__operand-2 {
-  background-color: transparent;
-  outline: none;
-  border: 0;
-  text-align: right;
   pointer-events: none;
 }
 .calculator__btn {
@@ -76,4 +76,39 @@ main {
 }
 .calculator__btn:active{
   box-shadow: 1px 6px 6px #146551;
+}
+
+
+/*--------------------  */
+/*----AdvanceFunctions  */
+/*--------------------  */
+.advanceFunctions{
+  padding: 10px;
+  background-color: #8fc1b5;
+  border-radius: 3px;
+}
+
+.arbitraryBtnSection{
+  display: flex;
+  flex-direction: column;
+  gap:5px;
+}
+.arbitraryBtnSection button{
+  all:unset;
+  border: 1px solid grey;    
+  background-color: teal;
+  color:white;
+  padding:0px 5px;
+  border-radius: 5px;
+  cursor:pointer;
+}
+.arbitraryBtnSection button:hover{
+  color:teal;
+  background-color: white;
+}
+.arbitraryBtnSection input{
+  border:none;
+  outline:1px solid teal;
+  padding: 2px;
+  border-radius: 2px;
 }

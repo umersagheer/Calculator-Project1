@@ -1,48 +1,23 @@
-import {operand1,operand2} from"./app.js"
+import { operand1, operand2 } from "./app.js"
 
 export function handleInput(inputValue) {
 
     const value = inputValue;
 
     // using this look-up table to handle different inputs
-    const btnHandler = Object.assign({
-        "=": evaluate,
-        "ac": allClear,
-        "del": clear,
-        "e": constE,
-        "pi": constPi,  
-    },
-        // Explanation of this line is at the end of code
-        Array.from({ length: 10 }, (_, i) => ({ [i]: btnClickHandler })).reduce((a, b) => Object.assign(a, b)), {
-        "+": btnClickHandler,
-        "*": btnClickHandler,
-        "/": btnClickHandler,
-        "-": btnClickHandler,
-        "sin(": btnClickHandler,
-        "cos(": btnClickHandler,
-        "tan(": btnClickHandler,
-        "sqrt": btnClickHandler,
-        "^": btnClickHandler,
-        "(": btnClickHandler,
-        ")": btnClickHandler,
-        ".": btnClickHandler,
-    });
-
-    // const btnHandler = {
+    // const btnHandler = Object.assign({
     //     "=": evaluate,
-    //     "0": btnClickHandler,
-    //     "1": btnClickHandler,
-    //     "2": btnClickHandler,
-    //     "3": btnClickHandler,
-    //     "4": btnClickHandler,
-    //     "5": btnClickHandler,
-    //     "6": btnClickHandler,
-    //     "7": btnClickHandler,
-    //     "8": btnClickHandler,
-    //     "9": btnClickHandler,
+    //     "ac": allClear,
+    //     "del": clear,
+    //     "e": constE,
+    //     "pi": constPi,  
+    // },
+    //     // Explanation of this line is at the end of code
+    //     Array.from({ length: 10 }, (_, i) => ({ [i]: btnClickHandler })).reduce((a, b) => Object.assign(a, b)), {
     //     "+": btnClickHandler,
     //     "*": btnClickHandler,
     //     "/": btnClickHandler,
+    //     "-": btnClickHandler,
     //     "sin(": btnClickHandler,
     //     "cos(": btnClickHandler,
     //     "tan(": btnClickHandler,
@@ -51,13 +26,16 @@ export function handleInput(inputValue) {
     //     "(": btnClickHandler,
     //     ")": btnClickHandler,
     //     ".": btnClickHandler,
-    //     "ac": allClear,
-    //     "del": clear,
-    //     "e": e,
-    //     "pi": pi,
-    // }
+    // });
+    const btnHandler = {
+        "=": evaluate,
+        "ac": allClear,
+        "del": clear,
+        "e": constE,
+        "pi":constPi,
+    }
 
-    
+
     // mapping the inputs on the object and applying the related functions to handle
     // if the value dont matches call the arbitrary function instead by using the logical operator
     const valueHandler = btnHandler[value.toLowerCase()] || arbitrary;
@@ -77,7 +55,7 @@ function evaluate() {
         operand2.value = fixToFourDigits((eval(operand1.value)));
     }
     catch (error) {
-        operand2.value = error;
+        operand2.value = "Enter a valid input";
     }
 }
 
@@ -100,7 +78,7 @@ function calculateTan() {
 }
 
 // -------calculateSqrt
-function calculateSqrt(){
+function calculateSqrt() {
     const check = Math.sqrt((extractedNumber()))
     return fixToFourDigits(check)
 }
@@ -109,20 +87,12 @@ function calculateSqrt(){
 function extractedNumber() {
     const extraction = operand1.value.match(/\d/g);
 
-    if (extraction === null)
-        return 0;
-    return extraction.join("")
+    // checking if expression has no number in it return zero
+    return extraction === null ? 0 : extraction.join("");
 }
 
 function fixToFourDigits(num) {
-    if (num)
-        return num.toFixed(4);
-    return "Any Number is required"
-}
-
-// --------digit and operator
-function btnClickHandler(value) {
-    operand1.value += (value.trim());
+    return num ? num.toFixed(4) : "Any Number Is required"
 }
 
 // -------allClear
@@ -138,7 +108,7 @@ function clear() {
 
 // conversion to radian (bcz js cant evaluate expression in degrees)
 function toRadian(num) {
-    return ((num * Math.PI / 180 )|| undefined) ;
+    return ((num * Math.PI / 180) || undefined);
 }
 
 // value of pi
@@ -153,7 +123,7 @@ function constE() {
 
 // arbitrary
 function arbitrary(value) {
-    return console.log("arrr")
+    operand1.value += (value.trim());
 }
 // Array.from({ length: 10 }, (_, i) => ({ [i]: btnClickHandler })).reduce((a, b) => Object.assign(a, b))
 
