@@ -4,6 +4,10 @@ body {
   box-sizing: border-box;
   font-family: "Alkatra", cursive;
 }
+* {
+  margin: 0;
+  padding: 0;
+}
 
 /* Utilities */
 .span-2 {
@@ -14,7 +18,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap:20px;
+  gap: 20px;
   height: 100vh;
   flex-wrap: wrap;
 }
@@ -44,7 +48,7 @@ main {
   color: white;
 }
 #calculator__operand-1,
-#calculator__operand-2  {
+#calculator__operand-2 {
   background-color: transparent;
   border: 0;
   outline: none;
@@ -71,44 +75,94 @@ main {
 .calculator__btn:hover {
   background-color: #146551;
   box-shadow: 2px 3px 5px #146551;
-  border:1px solid #589a8d;
+  border: 1px solid #589a8d;
   color: white;
 }
-.calculator__btn:active{
+.calculator__btn:active {
   box-shadow: 1px 6px 6px #146551;
 }
-
 
 /*--------------------  */
 /*----AdvanceFunctions  */
 /*--------------------  */
-.advanceFunctions{
-  padding: 10px;
+.advanceFunctions {
+  padding: 15px;
   background-color: #8fc1b5;
   border-radius: 3px;
+  border: 1px solid #146551;
 }
 
-.arbitraryBtnSection{
+.arbitraryBtnSection {
   display: flex;
   flex-direction: column;
-  gap:5px;
+  gap: 5px;
 }
-.arbitraryBtnSection button{
-  all:unset;
-  border: 1px solid grey;    
+
+.arbitraryBtnSection h3 {
+  margin: 5px 0px;
+}
+.arbitraryBtnSection button {
+  all: unset;
+  border: 1px solid grey;
   background-color: teal;
-  color:white;
-  padding:0px 5px;
+  color: white;
+  padding: 0px 5px;
   border-radius: 5px;
-  cursor:pointer;
+  cursor: pointer;
 }
-.arbitraryBtnSection button:hover{
-  color:teal;
+.arbitraryBtnSection button:hover {
+  color: teal;
   background-color: white;
 }
-.arbitraryBtnSection input{
-  border:none;
-  outline:1px solid teal;
+.arbitraryBtnSection input {
+  border: none;
+  outline: 1px solid teal;
   padding: 2px;
   border-radius: 2px;
+}
+
+/*--------------------  */
+/*----HistoryFunctionality  */
+/*--------------------  */
+.historyContainer {
+  background-color: #8fc1b5;
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid #146551;
+}
+#history_btn {
+  all: unset;
+  background-color: teal;
+  border-radius:5px;
+  padding:3px 8px;
+}
+#history_btn:active{
+    color:white;
+}
+.historyContainer li {
+  all: unset;
+  font-size: 0.79rem;
+}
+.expressions{
+  display: flex;
+  justify-content: center;
+  gap:15px 20px;
+}
+#expressions_list,
+#answers_list,
+#cross_btn{
+  display: flex;
+  flex-direction: column;
+}
+
+.expressions button{
+  all:unset;
+  border: 1px solid #146551;
+  padding: 0px 5px;
+  border-radius: 50px;
+  font-size: 1.2rem;
+
+}
+.expressions button:active{
+  color:white;
 }

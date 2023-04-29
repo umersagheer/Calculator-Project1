@@ -1,5 +1,8 @@
 import { operand1, operand2 } from "./app.js"
 
+const expressions = [];
+const answers = [];
+
 export function handleInput(inputValue) {
 
     const value = inputValue;
@@ -32,7 +35,7 @@ export function handleInput(inputValue) {
         "ac": allClear,
         "del": clear,
         "e": constE,
-        "pi":constPi,
+        "pi": constPi,
     }
 
 
@@ -46,6 +49,7 @@ export function handleInput(inputValue) {
 
 // --------evaluate
 function evaluate() {
+    expressions.push(operand1.value);
     try {
         if (operand1.value.includes("sin")) return (operand2.value = calculateSin())
         if (operand1.value.includes("cos")) return (operand2.value = calculateCos())
@@ -57,7 +61,13 @@ function evaluate() {
     catch (error) {
         operand2.value = "Enter a valid input";
     }
+    answers.push(operand2.value);
+
+    console.log(expressions)
+    console.log(answers)
 }
+
+export {expressions,answers};
 
 // ---------sin
 function calculateSin() {
@@ -92,7 +102,7 @@ function extractedNumber() {
 }
 
 function fixToFourDigits(num) {
-    return num ? num.toFixed(4) : "Any Number Is required"
+    return num ? num.toFixed(4) : 0
 }
 
 // -------allClear

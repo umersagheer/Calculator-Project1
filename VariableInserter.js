@@ -19,7 +19,7 @@ export function addNewButton() {
 
 
 // Function that takes the html and make a template of it
-function elementFromHtml(html) {
+export function elementFromHtml(html) {
     const template = document.createElement('template')
     template.innerHTML = html.trim()
 

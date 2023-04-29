@@ -12,6 +12,9 @@
     />
     <link rel="stylesheet" href="style.css" />
     <script src="app.js" type="module" defer></script>
+    <script src="HandleInput.js" type="module" defer></script>
+    <script src="VariableInserter.js" type="module" defer></script>
+    <script src="History.js" type="module" defer></script>
     <title>Calculator</title>
   </head>
   <body>
@@ -52,11 +55,30 @@
 
       <div class="advanceFunctions">
         <div class="arbitraryBtnSection">
+          <h3>Add Your own Variable</h3>
           <span>Enter name for variable</span>
-          <input type="text" placeholder="Name" id="name"/>
+          <input type="text" placeholder="Name" id="name" />
           <span>Enter value for variable</span>
-          <input type="number" placeholder="Value" id="value"/>
+          <input type="number" placeholder="Value" id="value" />
           <button id="variableInserter">Add my button</button>
+        </div>
+      </div>
+
+      <div class="historyContainer">
+        <h3>History</h3>
+        <button id="history_btn">Show History</button>
+        <p>Click any Expression</p>
+        <div class="expressions">
+          <div>
+            <span>Expressions</span>
+            <ul id="expressions_list"></ul>
+          </div>
+          <div>
+            <span>Answers</span>
+            <ul id="answers_list"></ul>
+          </div>
+          <div id="cross_btn">
+          </div>
         </div>
       </div>
     </main>
